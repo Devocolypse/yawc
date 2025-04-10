@@ -1,3 +1,24 @@
+// Triggers for calculator buttons
+const numBtns = document.querySelectorAll('.numBtn');
+const operatorBtns = document.querySelectorAll('.operatorBtn');
+const clearBtn = document.querySelector('.clearBtn');
+const equalsBtn = document.querySelector('.equalsBtn');
+
+clearBtn.addEventListener('click', () => console.log(clearBtn));
+equalsBtn.addEventListener('click', () => console.log(equalsBtn));
+
+for (let i = 0; i < numBtns.length; i++) {
+  numBtns[i].addEventListener('click', () => {
+    console.log(numBtns[i]);
+  });
+}
+
+for (let i = 0; i < operatorBtns.length; i++) {
+  operatorBtns[i].addEventListener('click', () => {
+    console.log(operatorBtns[i]);
+  });
+}
+
 // Calculator display holders
 let firstNum = '';
 let secondNum = '';
