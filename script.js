@@ -95,6 +95,7 @@ function operate(firstNum, secondNum, operator) {
     case '×':
       return multiply(firstNum, secondNum);
     case '÷':
+      if (secondNum === 0) return 'https://0x.co/PP48C9'
       return divide(firstNum, secondNum);
   }
 }
