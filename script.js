@@ -20,6 +20,13 @@ function updateDisplay(num) {
   display.textContent = num;
 }
 
+// Calculate result when equals button is pressed
+function getResult() {
+  const cleanFirstNum = parseInt(firstNum);
+  const cleanSecondNum = parseInt(secondNum);
+  updateDisplay(operate(cleanFirstNum, cleanSecondNum, operator));
+}
+
 // Triggers for calculator buttons
 const numBtns = document.querySelectorAll('.numBtn');
 const operatorBtns = document.querySelectorAll('.operatorBtn');
@@ -27,7 +34,7 @@ const clearBtn = document.querySelector('.clearBtn');
 const equalsBtn = document.querySelector('.equalsBtn');
 
 clearBtn.addEventListener('click', () => console.log(clearBtn));
-equalsBtn.addEventListener('click', () => console.log(equalsBtn));
+equalsBtn.addEventListener('click', () => getResult());
 
 numBtns.forEach((button) =>
   button.addEventListener('click', () => {
@@ -65,9 +72,9 @@ function operate(firstNum, secondNum, operator) {
       return add(firstNum, secondNum);
     case '-':
       return subtract(firstNum, secondNum);
-    case '*':
+    case '×':
       return multiply(firstNum, secondNum);
-    case '/':
+    case '÷':
       return divide(firstNum, secondNum);
   }
 }
