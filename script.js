@@ -3,7 +3,7 @@ let firstNum = '';
 let secondNum = '';
 let operator = '';
 
-// Update holders
+// Display methods
 function updateHolder(num) {
   if (operator) {
     secondNum += num;
@@ -14,17 +14,32 @@ function updateHolder(num) {
   }
 }
 
-// Update Display
 function updateDisplay(num) {
   const display = document.querySelector('.display');
   display.textContent = num;
 }
 
+function clearHolders() {
+  firstNum = '';
+  secondNum = '';
+  operator = '';
+}
+
+function clearDisplay() {
+  clearHolders();
+  updateDisplay(0);
+}
+
 // Calculate result when equals button is pressed
-function getResult() {
+function calculateAndDisplayResult() {
   const cleanFirstNum = parseInt(firstNum);
   const cleanSecondNum = parseInt(secondNum);
-  updateDisplay(operate(cleanFirstNum, cleanSecondNum, operator));
+  const result = operate(cleanFirstNum, cleanSecondNum, operator);
+  updateDisplay(result);
+
+  // set holders to allow for another set of operations
+  clearHolders();
+  firstNum = `${result}`;
 }
 
 // Triggers for calculator buttons
@@ -34,7 +49,7 @@ const clearBtn = document.querySelector('.clearBtn');
 const equalsBtn = document.querySelector('.equalsBtn');
 
 clearBtn.addEventListener('click', () => console.log(clearBtn));
-equalsBtn.addEventListener('click', () => getResult());
+equalsBtn.addEventListener('click', () => calculateAndDisplayResult());
 
 numBtns.forEach((button) =>
   button.addEventListener('click', () => {
