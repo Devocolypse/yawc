@@ -1,3 +1,17 @@
+// Calculator display holders
+let firstNum = '';
+let secondNum = '';
+let operator = '';
+
+// Update holders
+function updateHolder(num) {
+  if (operator) {
+    secondNum += num;
+  } else {
+    firstNum += num;
+  }
+}
+
 // Update Display
 function updateDisplay(strInput) {
   const display = document.querySelector('.display');
@@ -29,11 +43,6 @@ operatorBtns.forEach((operator) =>
     console.log(operator);
   })
 );
-
-// Calculator display holders
-let firstNum = '';
-let secondNum = '';
-let operator = '';
 
 // Basic math operations
 function add(a, b) {
