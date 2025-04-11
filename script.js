@@ -7,22 +7,17 @@ let operator = '';
 function updateHolder(num) {
   if (operator) {
     secondNum += num;
-    updateDisplay('second');
+    updateDisplay(secondNum);
   } else {
     firstNum += num;
-    updateDisplay('first');
+    updateDisplay(firstNum);
   }
 }
 
 // Update Display
-function updateDisplay(target) {
+function updateDisplay(num) {
   const display = document.querySelector('.display');
-
-  if (target === 'first') {
-    display.textContent = firstNum;
-  } else {
-    display.textContent = secondNum;
-  }
+  display.textContent = num;
 }
 
 // Triggers for calculator buttons
