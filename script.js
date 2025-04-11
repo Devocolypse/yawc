@@ -7,19 +7,21 @@ let operator = '';
 function updateHolder(num) {
   if (operator) {
     secondNum += num;
+    updateDisplay('second');
   } else {
     firstNum += num;
+    updateDisplay('first');
   }
 }
 
 // Update Display
-function updateDisplay(strInput) {
+function updateDisplay(target) {
   const display = document.querySelector('.display');
 
-  if (display.textContent === '0') {
-    display.textContent = strInput;
+  if (target === 'first') {
+    display.textContent = firstNum;
   } else {
-    display.textContent += strInput;
+    display.textContent = secondNum;
   }
 }
 
@@ -34,7 +36,7 @@ equalsBtn.addEventListener('click', () => console.log(equalsBtn));
 
 numBtns.forEach((button) =>
   button.addEventListener('click', () => {
-    updateDisplay(button.textContent);
+    updateHolder(button.textContent);
   })
 );
 
