@@ -1,7 +1,12 @@
 // Update Display
 function updateDisplay(strInput) {
   const display = document.querySelector('.display');
-  display.textContent = strInput;
+
+  if (display.textContent === '0') {
+    display.textContent = strInput;
+  } else {
+    display.textContent += strInput;
+  }
 }
 
 // Triggers for calculator buttons
@@ -15,7 +20,7 @@ equalsBtn.addEventListener('click', () => console.log(equalsBtn));
 
 numBtns.forEach((button) =>
   button.addEventListener('click', () => {
-    console.log(button);
+    updateDisplay(button.textContent);
   })
 );
 
