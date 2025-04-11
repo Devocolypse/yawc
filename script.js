@@ -7,17 +7,17 @@ const equalsBtn = document.querySelector('.equalsBtn');
 clearBtn.addEventListener('click', () => console.log(clearBtn));
 equalsBtn.addEventListener('click', () => console.log(equalsBtn));
 
-for (let i = 0; i < numBtns.length; i++) {
-  numBtns[i].addEventListener('click', () => {
-    console.log(numBtns[i]);
-  });
-}
+numBtns.forEach((button) =>
+  button.addEventListener('click', () => {
+    console.log(button);
+  })
+);
 
-for (let i = 0; i < operatorBtns.length; i++) {
-  operatorBtns[i].addEventListener('click', () => {
-    console.log(operatorBtns[i]);
-  });
-}
+operatorBtns.forEach((operator) =>
+  operator.addEventListener('click', () => {
+    console.log(operator);
+  })
+);
 
 // Calculator display holders
 let firstNum = '';
