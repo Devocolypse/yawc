@@ -4,7 +4,7 @@ let secondNum = '';
 let operator = '';
 
 // Display methods
-function updateHolder(num) {
+function updateNumHolder(num) {
   if (operator) {
     secondNum += num;
     updateDisplay(secondNum);
@@ -12,6 +12,11 @@ function updateHolder(num) {
     firstNum += num;
     updateDisplay(firstNum);
   }
+}
+
+function updateOperatorHolder(op) {
+  if (operator) return;
+  operator = op;
 }
 
 function updateDisplay(num) {
@@ -48,18 +53,18 @@ const operatorBtns = document.querySelectorAll('.operatorBtn');
 const clearBtn = document.querySelector('.clearBtn');
 const equalsBtn = document.querySelector('.equalsBtn');
 
-clearBtn.addEventListener('click', () => console.log(clearBtn));
+clearBtn.addEventListener('click', () => clearDisplay());
 equalsBtn.addEventListener('click', () => calculateAndDisplayResult());
 
 numBtns.forEach((button) =>
   button.addEventListener('click', () => {
-    updateHolder(button.textContent);
+    updateNumHolder(button.textContent);
   })
 );
 
-operatorBtns.forEach((operator) =>
-  operator.addEventListener('click', () => {
-    console.log(operator);
+operatorBtns.forEach((op) =>
+  op.addEventListener('click', () => {
+    updateOperatorHolder(op.textContent)
   })
 );
 
