@@ -1,3 +1,9 @@
+// Update Display
+function updateDisplay(strInput) {
+  const display = document.querySelector('.display');
+  display.textContent = strInput;
+}
+
 // Triggers for calculator buttons
 const numBtns = document.querySelectorAll('.numBtn');
 const operatorBtns = document.querySelectorAll('.operatorBtn');
