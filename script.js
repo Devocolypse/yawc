@@ -17,11 +17,12 @@ function updateNumHolder(num) {
 function updateOperatorHolder(op) {
   if (operator) return;
   operator = op;
+  if (secondNum) calculateAndDisplayResult();
 }
 
-function updateDisplay(num) {
+function updateDisplay(msg) {
   const display = document.querySelector('.display');
-  display.textContent = num;
+  display.textContent = msg;
 }
 
 function clearHolders() {
@@ -37,14 +38,20 @@ function clearDisplay() {
 
 // Calculate result when equals button is pressed
 function calculateAndDisplayResult() {
+  if (!(firstNum && secondNum && operator)) return;
+
   const cleanFirstNum = parseInt(firstNum);
   const cleanSecondNum = parseInt(secondNum);
   const result = operate(cleanFirstNum, cleanSecondNum, operator);
   updateDisplay(result);
 
   // set holders to allow for another set of operations
-  clearHolders();
-  firstNum = `${result}`;
+  if (typeof result === 'number') {
+    clearHolders();
+    secondNum = `${result}`;
+  } else {
+    clearDisplay();
+  }
 }
 
 // Triggers for calculator buttons
@@ -64,7 +71,7 @@ numBtns.forEach((button) =>
 
 operatorBtns.forEach((op) =>
   op.addEventListener('click', () => {
-    updateOperatorHolder(op.textContent)
+    updateOperatorHolder(op.textContent);
   })
 );
 
@@ -95,7 +102,10 @@ function operate(firstNum, secondNum, operator) {
     case '×':
       return multiply(firstNum, secondNum);
     case '÷':
-      if (secondNum === 0) return 'https://0x.co/PP48C9'
+      if (secondNum === 0) {
+        alert('https://0x.co/PP48C9');
+        return '';
+      }
       return divide(firstNum, secondNum);
   }
 }
