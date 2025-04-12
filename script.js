@@ -2,12 +2,16 @@
 let firstNum = '';
 let secondNum = '';
 let operator = '';
+let prevResult = '';
 
 // Display methods
 function updateNumHolder(num) {
-  if (operator) {
+  if (operator && firstNum) {
     secondNum += num;
     updateDisplay(secondNum);
+  } else if (prevResult === firstNum) {
+    firstNum = num;
+    updateDisplay(firstNum);
   } else {
     firstNum += num;
     updateDisplay(firstNum);
@@ -43,12 +47,13 @@ function calculateAndDisplayResult() {
   const cleanFirstNum = parseInt(firstNum);
   const cleanSecondNum = parseInt(secondNum);
   const result = operate(cleanFirstNum, cleanSecondNum, operator);
+  prevResult = `${result}`;
   updateDisplay(result);
 
   // set holders to allow for another set of operations
   if (typeof result === 'number') {
     clearHolders();
-    secondNum = `${result}`;
+    firstNum = prevResult;
   } else {
     clearDisplay();
   }
