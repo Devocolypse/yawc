@@ -13,3 +13,16 @@
 html {
   box-sizing: border-box;
 }
+
+body {
+  height: 300px;
+  display: flex;
+}
+
+/* Calculator */
+.calculator {
+  width: 100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
