@@ -127,7 +127,7 @@ function operate(firstNum, secondNum, operator) {
       return multiply(firstNum, secondNum);
     case '÷':
       if (secondNum === 0) {
-        alert('https://0x.co/PP48C9');
+        alert('https://youtu.be/5scTi8xIdeQ');
         return '';
       }
       return divide(firstNum, secondNum);
