@@ -52,6 +52,24 @@ body {
   border-radius: 10px;
 }
 
+.operatorBtn {
+  background-color: #FF9800;
+}
+
+.numBtn {
+  color: #FFFFFF;
+  background-color: #263248;
+}
+
+.clearBtn, .equalsBtn {
+  color: #FFFFFF;
+  background-color: #7E8AA2;
+}
+
+.operatorBtn:focus {
+  background-color: aqua;
+}
+
 .display {
   padding: 10px;
   font-size: 48px;

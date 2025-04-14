@@ -7,7 +7,7 @@ let prevResult = '';
 // Rounding method courtesy of https://stackoverflow.com/a/48764436
 function round(num, decimalPlaces = 0) {
   let p = Math.pow(10, decimalPlaces);
-  let n = (num * p) * (1 + Number.EPSILON);
+  let n = num * p * (1 + Number.EPSILON);
   return Math.round(n) / p;
 }
 
@@ -26,6 +26,7 @@ function updateNumHolder(num) {
 }
 
 function updateOperatorHolder(op) {
+  if (!firstNum) return;
   if (secondNum) return;
   operator = op;
 }
