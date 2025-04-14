@@ -76,7 +76,7 @@ body {
 }
 
 .operatorBtn:focus {
-  background-color: aqua;
+  background-color: cadetblue;
 }
 
 .display {
