@@ -25,9 +25,18 @@ function updateNumHolder(num) {
   }
 }
 
+function clearActiveOp() {
+  operatorBtns.forEach((btn) => btn.classList.remove('opActive'));
+}
+
+function setActiveOp(btn) {
+  if (!firstNum) return;
+  clearActiveOp();
+  btn.classList.add('opActive');
+}
+
 function updateOperatorHolder(op) {
   if (!firstNum) return;
-  if (secondNum) return;
   operator = op;
 }
 
@@ -44,6 +53,7 @@ function clearHolders() {
 
 function clearDisplay() {
   clearHolders();
+  clearActiveOp();
   updateDisplay(0);
 }
 
@@ -56,6 +66,7 @@ function calculateAndDisplayResult() {
   const result = round(operate(cleanFirstNum, cleanSecondNum, operator), 2);
   prevResult = `${result}`;
   updateDisplay(result);
+  clearActiveOp();
 
   // set holders to allow for another set of operations
   if (typeof result === 'number') {
@@ -81,9 +92,10 @@ numBtns.forEach((button) =>
   })
 );
 
-operatorBtns.forEach((op) =>
-  op.addEventListener('click', () => {
-    updateOperatorHolder(op.textContent);
+operatorBtns.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    updateOperatorHolder(btn.textContent);
+    setActiveOp(btn);
   })
 );
 

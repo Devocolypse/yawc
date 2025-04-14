@@ -65,6 +65,10 @@ body {
   background-color: #FF9800;
 }
 
+.opActive {
+  background-color: cadetblue;
+}
+
 .numBtn {
   color: #FFFFFF;
   background-color: #263248;
@@ -75,9 +79,6 @@ body {
   background-color: #7E8AA2;
 }
 
-.operatorBtn:focus {
-  background-color: cadetblue;
-}
 
 .display {
   padding: 10px;
