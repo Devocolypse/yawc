@@ -19,9 +19,8 @@ function updateNumHolder(num) {
 }
 
 function updateOperatorHolder(op) {
-  if (operator) return;
+  if (secondNum) return;
   operator = op;
-  if (secondNum) calculateAndDisplayResult();
 }
 
 function updateDisplay(msg) {
