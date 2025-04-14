@@ -4,6 +4,13 @@ let secondNum = '';
 let operator = '';
 let prevResult = '';
 
+// Rounding method courtesy of https://stackoverflow.com/a/48764436
+function round(num, decimalPlaces = 0) {
+  let p = Math.pow(10, decimalPlaces);
+  let n = (num * p) * (1 + Number.EPSILON);
+  return Math.round(n) / p;
+}
+
 // Display methods
 function updateNumHolder(num) {
   if (operator && firstNum) {
@@ -45,7 +52,7 @@ function calculateAndDisplayResult() {
 
   const cleanFirstNum = parseInt(firstNum);
   const cleanSecondNum = parseInt(secondNum);
-  const result = operate(cleanFirstNum, cleanSecondNum, operator);
+  const result = round(operate(cleanFirstNum, cleanSecondNum, operator), 2);
   prevResult = `${result}`;
   updateDisplay(result);
 
