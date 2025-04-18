@@ -23,7 +23,7 @@ Similarly, capturing and manipulating the DOM was challenging, but in a fun way 
 I understand how Javascript actually interacts with the browser better; prior to this, I simply
 did whatever I knew worked without thinking too hard about why.
 
-I also made better use of documentation (like MDN's). For example, YWAC originally iterated over
+I also made better use of documentation (like MDN's). For example, YAWC originally iterated over
 each of the buttons through a `for` loop, accessing each button in the list by index. This works fine,
 but I figured there must be a more "native" way. Turns it, there was: by looking up what
 `querySelectorAll()` returns (a NodeList), I was able to then look up any native methods it had --
